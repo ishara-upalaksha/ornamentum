@@ -5,24 +5,6 @@
   </button>
   <a class="navbar-brand nav-brand-lg app-name-lg" href="#"></a>
   <div class="main-navigation navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" [routerLinkActive]="'active'">
-        <a class="nav-link" [routerLink]="'/feature/data-table'">
-            <span class="main-nav-label">
-              <i class="data-table-icon"></i>
-              <span class="menu-title">Data Table</span>
-            </span>
-        </a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="'active'">
-        <a class="nav-link" [routerLink]="'/feature/dropdown'">
-            <span class="main-nav-label">
-              <i class="dropdown-icon"></i>
-              <span class="menu-title">Dropdown</span>
-            </span>
-        </a>
-      </li>
-    </ul>
     <ul class="navbar-nav ml-auto icon-menu">
       <li class="nav-item">
         <a class="nav-link" target="_blank" href="https://www.npmjs.com/package/ornamentum">
@@ -34,23 +16,23 @@
           <span class="main-nav-label theme-switcher">
             <span class="theme"></span>
             <div class="theme-selector-container">
-            <div class="themes-selector">
-              <a (click)="onThemeChange(CoreConstants.BASE_THEME_CLASS)" title="Base Theme">
+            <div class="themes-selector" [class.selected]="isSelectedTheme(Theme.base)">
+              <a (click)="onThemeChange(Theme.base)" title="Base Theme">
                 <span class="base-theme"></span>
               </a>
             </div>
-            <div class="themes-selector">
-              <a (click)="onThemeChange(CoreConstants.DARK_THEME_CLASS)" title="Dark Theme">
+            <div class="themes-selector" [class.selected]="isSelectedTheme(Theme.dark)">
+              <a (click)="onThemeChange(Theme.dark)" title="Dark Theme">
                 <span class="dark-theme"></span>
               </a>
             </div>
-            <div class="themes-selector">
-              <a (click)="onThemeChange(CoreConstants.FLAT_THEME_CLASS)" title="Flat Theme">
+            <div class="themes-selector" [class.selected]="isSelectedTheme(Theme.flat)">
+              <a (click)="onThemeChange(Theme.flat)" title="Flat Theme">
                 <span class="flat-theme"></span>
               </a>
             </div>
-            <div class="themes-selector">
-              <a (click)="onThemeChange(CoreConstants.ORNAMENTUM_THEME_CLASS)" title="Ornamentum Theme">
+            <div class="themes-selector" [class.selected]="isSelectedTheme(Theme.ornamentum)">
+              <a (click)="onThemeChange(Theme.ornamentum)" title="Ornamentum Theme">
                 <span class="ornamentum-theme"></span>
               </a>
             </div>
@@ -65,10 +47,10 @@
           </span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item github-icon-link">
         <a class="nav-link" href="https://github.com/yohangz/ornamentum" target="_blank">
           <span class="main-nav-label">
-            <span class="github-icon" title="https://github.com/yohangz/ornamentum"></span>
+            <span class="github-icon" title="https://github.com/yohangz/ornamentum"></span> <span class="github-link">Github</span>
           </span>
         </a>
       </li>

@@ -158,6 +158,25 @@ export class DataTableBodyComponent {
   }
 
   /**
+   * On row click event.
+   * @param {DataTableRow} row Data row object.
+   * @param {Event} event Row click event.
+   */
+  public onRowSelectClick(row: DataTableRow<any>, event: Event): void {
+    // Prevent single mode checkbox getting unchecked on tapping already selected.
+    if (this.config.selectMode === DataTableSelectMode.SINGLE) {
+      const id = get(row.item, this.config.selectTrackBy);
+      const previousSelection = this.dataStateService.selectedRow;
+      this.dataStateService.selectedRow = id;
+
+      if (previousSelection === id) {
+        event.preventDefault();
+        row.selected = true;
+      }
+    }
+  }
+
+  /**
    * On row selection change event.
    * Maintain selected row state.
    * @param {DataTableRow} row Data row object.

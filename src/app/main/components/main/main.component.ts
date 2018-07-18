@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { animate, group, query, style, transition, trigger } from '@angular/animations';
 import { Router } from '@angular/router';
 
-import { CoreConstants } from '../../../core/core.constants';
+import { Theme } from '../../../core/models/theme.enum';
 
 /**
  * Component class for showing main view.
@@ -11,27 +10,10 @@ import { CoreConstants } from '../../../core/core.constants';
 @Component({
   selector: 'app-main',
   styleUrls: ['./main.component.scss'],
-  templateUrl: './main.component.html',
-  animations: [
-    trigger('routeFadeIn', [
-      transition('* <=> *', [
-        query(':enter, :leave', style({position: 'fixed', width: '100%'}), {optional: true}),
-        group([
-          query(':enter', [
-            style({opacity: 0}),
-            animate('0.5s ease-in-out', style({opacity: 1}))
-          ], {optional: true}),
-          query(':leave', [
-            style({opacity: 1}),
-            animate('0.5s ease-in-out', style({opacity: 0}))
-          ], {optional: true}),
-        ])
-      ])
-    ])
-  ]
+  templateUrl: './main.component.html'
 })
 export class MainComponent {
-  public themeCssClass = CoreConstants.DARK_THEME_CLASS;
+  public themeCssClass: string = Theme.dark;
 
   constructor(private router: Router) {
   }

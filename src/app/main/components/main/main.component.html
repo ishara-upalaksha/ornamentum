@@ -1,9 +1,9 @@
-<div class="main-wrapper" [class]="themeCssClass">
+<div class="main-wrapper" [ngClass]="themeCssClass">
   <div class="page-wrapper">
     <header>
-      <app-main-menu (themeChange)="onThemeChange($event)"></app-main-menu>
+      <app-main-menu (themeChange)="onThemeChange($event)" [selectedTheme]="themeCssClass"></app-main-menu>
     </header>
-    <div class="page-wrapper-content" [@routeFadeIn]="getState()">
+    <div class="page-wrapper-content">
       <router-outlet></router-outlet>
     </div>
   </div>
