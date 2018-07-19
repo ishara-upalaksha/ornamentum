@@ -15,7 +15,7 @@ export class PixelConverterPipe implements PipeTransform {
    * @returns {string} Converted pixel value.
    */
   public transform(value: string | number): string {
-    if (value === undefined) {
+    if (value === undefined || value === null || value.toString().startsWith("-") || value < 0) {
       return;
     }
     if (typeof value === 'string') {
